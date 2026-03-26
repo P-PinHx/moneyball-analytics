@@ -43,14 +43,14 @@ win_bins - Categorical binning of win totals:
 ```
 Note for Model Training: The above fields are only available in the training data but are not included in test.csv as they would cause data leakage or are derived from the target variable.
 
-###Target Variable
+### Target Variable
 ```
 W - Number of wins in the season (integer, range ~40-120)
 Features
 Basic Statistics
 G - Games played (integer)
 ```
-###Battle Statistcs
+### Battle Statistcs
 ```
 R - Runs scored (integer)
 AB - At bats (integer)
@@ -75,7 +75,7 @@ BB - Walks (integer)
 SO - Strikeouts (integer)
 SB - Stolen bases (integer)
 ```
-###Pitching/Defense Statistics
+### Pitching/Defense Statistics
 ```
 RA - Runs allowed (integer)
 ER - Earned runs allowed (integer)
@@ -92,11 +92,11 @@ E - Errors (integer)
 DP - Double plays (integer)
 FP - Fielding percentage (float)
 ```
-###Derived Features
+### Derived Features
 
 mlb_rpg - MLB average runs per game for the season (float)
 
-###Era Indicators
+### Era Indicators
 
 Binary indicators for different historical MLB eras:
 ```
@@ -109,7 +109,7 @@ era_6 - 1977-1992: Free agency era
 era_7 - 1993-2009: Steroid era
 era_8 - 2010-present: Post-steroid/analytics era
 ```
-###Decade Indicators
+### Decade Indicators
 
 Binary indicators for each decade (1910s-2010s):
 ```
@@ -127,7 +127,7 @@ decade_2010 - 2010s
 ```
 ---
 
-#Evaluation
+# Evaluation
 
 Outcome is evaluated using Mean Absolute Error (MAE), which measures the average absolute difference between the predicted wins and actual wins. Lower scores indicate better performance, with a perfect score being 0. The MAE is calculated as the mean of the absolute values of the differences between predicted and actual wins across all teams.
 

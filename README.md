@@ -10,14 +10,14 @@ The dataset contains comprehensive team statistics from the 2016 Lahman Baseball
 
 Batting statistics: Runs, hits, home runs, strikeouts, etc. Pitching statistics: Earned run average, saves, strikeouts, etc. Fielding statistics: Errors, double plays, fielding percentage Team information: Year, team name, franchise ID Game outcomes: Wins, losses, championships
 
- ##MLB Season Wins Prediction: Data Description
- ###Files
+ ## MLB Season Wins Prediction: Data Description
+ ### Files
 
   data.csv - Historical MLB team seasons with all features and the target variable (W) - 1698 samples
   predict.csv - MLB team seasons for prediction submission (without the W column) - 567 samples
   sample_submission.csv - A sample submission file in the correct format.
 
- ###Analysis Support Fields
+ ### Analysis Support Fields
 
  These fields are included to support data exploration and analysis but use caution when including them as features in  model training.
 ```

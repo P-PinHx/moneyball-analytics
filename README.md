@@ -12,7 +12,6 @@ NTU DSAI DS2F Moneyball Analytics
 ---
 
 # Project Motivation
-
 The objective is to predict the number of wins (W) for baseball teams using historical statistics.
 
 The project is inspired by the Moneyball philosophy, which uses data to uncover winning strategies rather than relying on intuition.
@@ -24,11 +23,8 @@ Winning baseball teams score more runs than they allow.
 This insight is strongly supported by sabermetric research.
 
 # Baseball Analytics Background
-
 In baseball, a team scores runs by hitting and advancing around bases until reaching home plate.
-
 A game consists of nine innings, where teams alternate between offense and defense.
-
 Runs are scored when a player completes the circuit of bases and returns to home plate.
 
 ### Therefore:
@@ -36,10 +32,11 @@ Runs are scored when a player completes the circuit of bases and returns to home
 Wins ≈ Offensive production − Defensive prevention
 ```
 This is why run differential is the most important statistic in baseball analytics.
+
 ---
 
 # Key Sabermetric Principle
-## Run Differential
+### Run Differential
 ```
 run_diff = R - RA
 ```
@@ -50,11 +47,12 @@ Where:
 | R        | Runs scored  |
 | RA       | Runs allowed |
 ```
-## Run Differential per Game
+### Run Differential per Game
 ```
 run_diff_pg = (R - RA) / G
 ```
 This normalizes team performance across seasons with different numbers of games.
+
 ---
 
 # Dataset
@@ -73,6 +71,7 @@ predict.csv
 ```
 Used to generate Kaggle leaderboard submissions.
 The starter notebook loads both datasets and prepares features before training a regression model.
+
 ---
 
 # Model Architecture
@@ -129,13 +128,12 @@ strong offense + weak defense
 ballpark factor + power hitting
 ```
 ## Gradient Boosting
-
 Learns subtle statistical patterns.
 Useful for small structured datasets like baseball season statistics.
+
 ---
 
 # Meta Model
-
 A Linear Regression stacker combines predictions from all base models.
 
 ## Model contribution:
@@ -148,27 +146,26 @@ A Linear Regression stacker combines predictions from all base models.
 | GradientBoost | 0.302  |
 ```
 ## Interpretation:
-
 Most predictive power comes from linear relationships, confirming the sabermetric hypothesis.
+
 ---
 
 # Feature Engineering
-
 Two engineered features significantly improved performance.
 
-## Run Differential
+### Run Differential
 ```
 run_diff = R - RA
 ```
-## Run Differential Per Game
+### Run Differential Per Game
 ```
 run_diff_pg = run_diff / G
 ```
 These features encode the fundamental relationship between offense and defense.
+
 ---
 
 # Feature List
-
 Key statistics include:
 
 ## Offensive Metrics
@@ -198,10 +195,10 @@ Pitching park factor (PPF)
 Attendance
 ```
 These contextual variables account for environmental effects on scoring.
+
 ---
 
 # Model Pipeline
-
 The pipeline follows these steps:
 
 ## 1️⃣ Load datasets
@@ -277,6 +274,7 @@ captures team dominance.
 
 ## 3️⃣ Stacking Improves Stability
 Combining models reduces overfitting and prediction variance.
+
 ---
 
 # Technologies Used

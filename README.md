@@ -147,7 +147,12 @@ A Linear Regression stacker combines predictions from all base models.
 ```
 ## Interpretation:
 Most predictive power comes from linear relationships, confirming the sabermetric hypothesis.
-
+```
+> Ridge is doing most of the work
+> GradientBoost adds signal
+> ElasticNet adds small signal
+> RandomForest may be hurting performance
+```
 ---
 
 # Feature Engineering

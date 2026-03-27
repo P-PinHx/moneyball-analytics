@@ -4,7 +4,7 @@ Predicting team wins using sabermetrics + machine learning.
 
 This project builds a stacked ensemble model that predicts baseball team wins using historical statistics. The approach combines traditional baseball analytics principles with modern ML stacking techniques.
 
-## 🏆 Best Kaggle Score:
+# 🏆 Best Kaggle Score:
 2.90946 MAE
 
 ## Competition:
@@ -83,7 +83,7 @@ The final system uses stacked ensemble learning.
                         ▼
                  Base Models
       ┌─────────────┬─────────────┬─────────────┬─────────────┐
-      │ ElasticNet  │   Ridge     │ RandomForest│ GradientBoost│
+      │      ElasticNet     │        Ridge        │     RandomForest   │    GradientBoost   │
       └─────────────┴─────────────┴─────────────┴─────────────┘
                         │
                         ▼
@@ -301,7 +301,7 @@ Potential enhancements:
 - advanced sabermetrics (WAR, OPS)
 ```
 # References
-1) Beginner baseball concepts such as scoring runs, innings, and base running were referenced from the "Beginner’s Guide to Baseball" document.
+1) Beginner baseball concepts such as scoring runs, winnings, and base running were referenced from the "Beginner’s Guide to Baseball" document.
 
 2) Starter modeling workflow derived from the competition starter notebook.
 

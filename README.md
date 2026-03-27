@@ -5,7 +5,7 @@ Predicting team wins using sabermetrics + machine learning.
 This project builds a stacked ensemble model that predicts baseball team wins using historical statistics. The approach combines traditional baseball analytics principles with modern ML stacking techniques.
 
 ## 🏆 Best Kaggle Score:
-2.95884 MAE
+2.94650 MAE
 
 ## Competition:
 NTU DSAI DS2F Moneyball Analytics
@@ -113,19 +113,19 @@ ElasticNet helps control multicollinearity.
 Stabilizes predictions when many variables are correlated.
 
 ## Works well with:
-
+```
 - hitting statistics
 - pitching metrics
 - defensive indicators
-
+```
 ## Random Forest
 
 Captures non-linear interactions.
 
 Examples:
 ```
-strong offense + weak defense
-ballpark factor + power hitting
+1) strong offense + weak defense
+2) ballpark factor + power hitting
 ```
 ## Gradient Boosting
 Learns subtle statistical patterns.
@@ -140,10 +140,10 @@ A Linear Regression stacker combines predictions from all base models.
 ```
 | Model         | Weight |
 | ------------- | ------ |
-| ElasticNet    | 0.416  |
-| Ridge         | 0.387  |
-| RandomForest  | -0.108 |
-| GradientBoost | 0.302  |
+| ElasticNet    | 0.589  |
+| Ridge         | 0.227  |
+| RandomForest  | -0.095 |
+| GradientBoost | 0.275  |
 ```
 ## Interpretation:
 Most predictive power comes from linear relationships, confirming the sabermetric hypothesis.
@@ -262,7 +262,7 @@ moneyball-analytics/
 | ------------------- | ------------ |
 | ElasticNet baseline | ~3.06        |
 | Stacking ensemble   | ~3.00        |
-| Final tuned stack   | **2.95884**  |
+| Final tuned stack   | **2.94650**  |
 ```
 ---
 

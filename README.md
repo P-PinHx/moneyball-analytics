@@ -5,7 +5,7 @@ Predicting team wins using sabermetrics + machine learning.
 This project builds a stacked ensemble model that predicts baseball team wins using historical statistics. The approach combines traditional baseball analytics principles with modern ML stacking techniques.
 
 ## 🏆 Best Kaggle Score:
-2.94650 MAE
+2.90946 MAE
 
 ## Competition:
 NTU DSAI DS2F Moneyball Analytics
@@ -140,10 +140,10 @@ A Linear Regression stacker combines predictions from all base models.
 ```
 | Model         | Weight |
 | ------------- | ------ |
-| ElasticNet    | 0.589  |
-| Ridge         | 0.227  |
-| RandomForest  | -0.095 |
-| GradientBoost | 0.275  |
+| ElasticNet    | 0.457  |
+| Ridge         | 0.343  |
+| RandomForest  | -0.111 |
+| GradientBoost | 0.303  |
 ```
 ## Interpretation:
 Most predictive power comes from linear relationships, confirming the sabermetric hypothesis.

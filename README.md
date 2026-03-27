@@ -262,7 +262,7 @@ moneyball-analytics/
 | ------------------- | ------------ |
 | ElasticNet baseline | ~3.06        |
 | Stacking ensemble   | ~3.00        |
-| Final tuned stack   | **2.94650**  |
+| Final tuned stack   | **2.90946**  |
 ```
 ---
 
@@ -301,7 +301,7 @@ Potential enhancements:
 - advanced sabermetrics (WAR, OPS)
 ```
 # References
-1) Beginner baseball concepts such as scoring runs, innings, and base running were referenced from the Beginner’s Guide to Baseball document.
+1) Beginner baseball concepts such as scoring runs, innings, and base running were referenced from the "Beginner’s Guide to Baseball" document.
 
 2) Starter modeling workflow derived from the competition starter notebook.
 

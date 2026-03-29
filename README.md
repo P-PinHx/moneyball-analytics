@@ -109,7 +109,7 @@ ElasticNet helps control *multicollinearity*.
 
 ---
 
-# Ridge Regression
+## Ridge Regression
 
 Stabilizes predictions when many variables are correlated.
 

@@ -342,7 +342,7 @@ Typical expected private leaderboard range is :
 Examining prediction error distribution.
 ```
 <Metric>	           <Value>
-Mean error	          2.4448
+Mean error	        2.4448
 Median error	        2.0977
 90th percentile	      5.003
 ```
@@ -355,8 +355,8 @@ This indicates a **'well-generalizing' model**.
 ## Overfitting Assessment
 Training and validation metrics' comparison:
 ```
-<Metric>	          <Value>
-Training MAE          2.44
+<Metric>	        <Value>
+Training MAE        2.44
 Simulated MAE	     2.82
 Public leaderboard   2.91
 ```

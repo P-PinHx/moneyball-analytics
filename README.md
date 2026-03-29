@@ -258,6 +258,11 @@ Add sabermetric predictors.
 ```
 run_diff
 run_diff_pg
+R_pg
+RA_pg
+log_run_diff
+WHIP
+K_BB_ratio
 ```
 ## 3️⃣ Train base models
 ```
@@ -307,6 +312,7 @@ Public Leaderboard Score - **MAE = 2.90946**
 | Final tuned stack   | **2.90946**  |
 ```
 Leaderboard scores are calculated on approximately 54% of the test dataset, while remaining 46% determines the final ranking.
+
 ---
 
 # Diagnostic Evaluation
@@ -349,10 +355,10 @@ This indicates a **'well-generalizing' model**.
 ## Overfitting Assessment
 Training and validation metrics' comparison:
 ```
-<Metric>	           <Value>
+<Metric>	          <Value>
 Training MAE          2.44
-Simulated MAE	        2.82
-Public leaderboard    2.91
+Simulated MAE	       2.82
+Public leaderboard   2.91
 ```
 The gap **(~0.45)** is typical for stacked models and has **no significant overfitting**.
 

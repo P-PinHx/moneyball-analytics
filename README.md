@@ -177,7 +177,7 @@ run_diff_pg - run_diff / G
 These metrics capture *team dominance* more effectively than raw runs.
 Run differential is one of the strongest predictors of team wins.
 
-Teams with higher run differentials tend to win more games.
+Teams with **higher run differentials** tend to **win more games**.
 
 ### Run Differential Per Game (Environment Normalization)
 Normalizing by games helps to account for season length environment differences.
@@ -200,7 +200,8 @@ The metrics reflect pitching quality and control.
 WHIP = (BBA + HA) / (IPouts / 3)
 ```
 WHIP measures how many baserunners a pitcher allows per inning (round).
-Lower WHIP indicates better *pitching performance*.
+
+Lower WHIP indicates **better *pitching performance***.
 
 ### Strikeout-to-Walk Ratio
 ```
@@ -208,6 +209,7 @@ K_BB_ratio = SOA / (BBA + 1)
 ```
 This metric evaluates pitching control and dominance.
 Higher values indicate pitchers who strike out more batters while issuing fewer walks.
+
 ---
 
 # Feature List

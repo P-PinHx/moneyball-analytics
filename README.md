@@ -163,31 +163,50 @@ This analysis aligns with baseball analytics where **'run differential'** and **
 ---
 
 # Feature Engineering
-Two engineered features significantly improved performance.
+Several sabermetric-inspired engineered features from raw baseball statistics significantly improved predictive performance.
+These features summarize team offensive strength, putching efficiency and overall dominance.
 
 ### Run Differential (Run Dominance Metrics)
 ```
 run_diff = R - RA
-log_run_diff = sign(run_diff) * log(1 + |run_diff|)
+run_diff_pg - run_diff / G
 ```
-These metrics capture *team dominance* more effectively than raw runs.
+- run_diff measures total scoring advantage of a team.
+- reun_diff_pg normalizes the run differential by games played.
 
-### Run Differential Per Game (Per-Game Normalization)
-Normalizing by games helps to account for season length differences.
+These metrics capture *team dominance* more effectively than raw runs.
+Run differential is one of the strongest predictors of team wins.
+Teams with higher run differentials tend to win more games.
+
+### Run Differential Per Game (Environment Normalization)
+Normalizing by games helps to account for season length environment differences.
 ```
 R_pg = R / G
 RA_pg = RA / G
 ```
-These features encode the fundamental *relationship* between offense and defense.
+These features encode the fundamental *relationship* between offense productivity and defensive effectiveness per game.
+
+### Log-Scaled Run Differential
+Extreme run differentials likely dominate linear models, so log transformation is applied to model to compresses extreme values while preserving the direction of team dominance.
+
+```
+log_run_diff = sign(run_diff) * log(1 + |run_diff|)
+```
 
 ### Pitching Efficiency Metrics
 The metrics reflect pitching quality and control.
 ```
 WHIP = (BBA + HA) / (IPouts / 3)
+```
+WHIP measures how many baserunners a pitcher allows per inning (round).
+Lower WHIP indicates better *pitching performance*.
+
+### Strikeout-to-Walk Ratio
+```
 K_BB_ratio = SOA / (BBA + 1)
 ```
-These statistics approach evaluate *pitching performance* in 'Major League Baseball' analytics.
-
+This metric evaluates pitching control and dominance.
+Higher values indicate pitchers who strike out more batters while issuing fewer walks.
 ---
 
 # Feature List

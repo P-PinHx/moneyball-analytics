@@ -357,7 +357,7 @@ Training and validation metrics' comparison:
 ```
 <Metric>	          <Value>
 Training MAE          2.44
-Simulated MAE	       2.82
+Simulated MAE	     2.82
 Public leaderboard   2.91
 ```
 The gap **(~0.45)** is typical for stacked models and has **no significant overfitting**.

@@ -76,7 +76,7 @@ The starter notebook loads both datasets and prepares features before training a
 
 # Model Architecture
 
-The final system uses stacked ensemble learning.
+The final system uses stacked ensemble learning, combining linear and tree-based models to capture both linear sabermetric relationships and non-linear interactions in team performance.
 ```
                  Feature Engineering
                         │
@@ -105,7 +105,8 @@ Example correlations:
 R ↔ H ↔ HR ↔ BB
 RA ↔ ERA ↔ ER
 ```
-ElasticNet helps control multicollinearity.
+ElasticNet helps control *multicollinearity*.
+
 ---
 
 # Ridge Regression
@@ -135,6 +136,7 @@ Useful for small structured datasets like baseball season statistics.
 
 # Meta Model
 A Linear Regression stacker combines predictions from all base models.
+This stacking approach balances *model stability* and *predictive power*.
 
 ## Model contribution:
 ```
@@ -146,27 +148,45 @@ A Linear Regression stacker combines predictions from all base models.
 | GradientBoost | 0.303  |
 ```
 ## Interpretation:
-Most predictive power comes from linear relationships, confirming the sabermetric hypothesis.
+Most predictive power comes from **linear relationships**, confirming the sabermetric hypothesis.
 ```
 > ElasticNet adds small signal
 > Ridge is doing most of the work
 > RandomForest may be hurting performance
 > GradientBoost adds signal
+
+- Linear models capture most of the signal (~80%)
+- Tree models provide non-linear corrections (~20%)
 ```
+This analysis aligns with baseball analytics where **'run differential'** and **'pitching efficiency'** dominate win prediction.
+
 ---
 
 # Feature Engineering
 Two engineered features significantly improved performance.
 
-### Run Differential
+### Run Differential (Run Dominance Metrics)
 ```
 run_diff = R - RA
+log_run_diff = sign(run_diff) * log(1 + |run_diff|)
 ```
-### Run Differential Per Game
+These metrics capture *team dominance* more effectively than raw runs.
+
+### Run Differential Per Game (Per-Game Normalization)
+Normalizing by games helps to account for season length differences.
 ```
-run_diff_pg = run_diff / G
+R_pg = R / G
+RA_pg = RA / G
 ```
-These features encode the fundamental relationship between offense and defense.
+These features encode the fundamental *relationship* between offense and defense.
+
+### Pitching Efficiency Metrics
+The metrics reflect pitching quality and control.
+```
+WHIP = (BBA + HA) / (IPouts / 3)
+K_BB_ratio = SOA / (BBA + 1)
+```
+These statistics approach evaluate *pitching performance* in 'Major League Baseball' analytics.
 
 ---
 
@@ -257,6 +277,7 @@ moneyball-analytics/
 ---
 
 # Performance
+Public Leaderboard Score - **MAE = 2.90946**
 ```
 | Model               | Kaggle Score |
 | ------------------- | ------------ |
@@ -264,7 +285,55 @@ moneyball-analytics/
 | Stacking ensemble   | ~3.00        |
 | Final tuned stack   | **2.90946**  |
 ```
+Leaderboard scores are calculated on approximately 54% of the test dataset, while remaining 46% determines the final ranking.
 ---
+
+# Diagnostic Evaluation
+Diagnostics are performed to verify **model stability** and **detect potential overfitting**.
+
+## Training Error
+```
+Training MAE: 2.4448
+```
+This finding reflect the model's fit on the training dataset.
+
+## Leaderboard Stability Test
+For private leaderboard performance estimation, a simulated leaderboard test was conducted using repeated **'ShuffleSplit'** validation.
+```
+Mean simulated MAE : 2.8199
+Standard Deviation : 0.058
+```
+Interpretation:
+- Mean MAE estimates expected private leaderboard score
+- Low standard deviation indicates **'high model stability'**
+Typical expected private leaderboard range is :
+```
+2.80 - 2.90 MAE
+```
+
+## Error Distribution Analysis
+Examining prediction error distribution.
+```
+<Metric>	           <Value>
+Mean error	          2.4448
+Median error	        2.0977
+90th percentile	      5.003
+```
+Interpretation:
+- Most predictions fall wihtin ~2 wins
+- 90% of predictions are within 5 wins
+- Error distribution shows few extreme outliers
+This indicates a **'well-generalizing' model**.
+
+## Overfitting Assessment
+Training and validation metrics' comparison:
+```
+<Metric>	           <Value>
+Training MAE          2.44
+Simulated MAE	        2.82
+Public leaderboard    2.91
+```
+The gap **(~0.45)** is typical for stacked models and has **no significant overfitting**.
 
 # Key Insights
 
@@ -272,15 +341,45 @@ moneyball-analytics/
 Despite complex interactions, linear models explain most variance.
 
 ## 2️⃣ Run Differential Is the Best Predictor
+Strongest predictor of team success is **run differential**, defined as the difference between runs scored and runs allowed.
 ```
 run_diff = R - RA
 ```
+### **Teams that consistently score more runs than they allow tend to win more games.**
+
+To capture this behavior metrics, additional transformations of run differential are included in the model.
 captures team dominance.
+
+### Log-Scaled Run Differential
+```
+log_run_diff = sign(run_diff) * log(1 + |run_diff|)
+```
+This transformation compresses extreme run differentials and helps the model to capture non-linear effects for very strong or very weak teams.
+
+### Run Environment Adjustment
+Runs scored and allowed are normalized by games played:
+```
+R_pg  = R / G
+RA_pg = RA / G
+```
+This approach helps account for differences in scoring environments and season lengths.
+
+Altogether, these features allow model to capture:
+
+**- overall team dominance**
+**- non-linear scoring effects**
+**- variation in scoring environments**
 
 ## 3️⃣ Stacking Improves Stability
 Combining models reduces overfitting and prediction variance.
 
+Overall, the strongest signals align with established sabermetric findings:
+1. Run Differential
+2. Pitching Efficiency
+3. Offensive Production
 ---
+
+Exploratory analysis confirmed that run differential alone explains the majority of variation in team wins, reinforcing its importance as the primary predictive feature.
 
 # Technologies Used
 ```
@@ -292,14 +391,22 @@ Combining models reduces overfitting and prediction variance.
 ```
 
 # Future Improvements
-Potential enhancements:
+Potential enhancements if there is larger dataset size:
 ```
-- XGBoost / LightGBM stacking
+- Gradient boosting models - XGBoost / LightGBM stacking
 - Pythagorean win expectation
 - Bayesian regression
-- era-adjusted scoring metrics
-- advanced sabermetrics (WAR, OPS)
 ```
+# Final Model Characteristics
+The final model is expected to **perform consistently on the private leaderboard** evaluation dataset.
+
+✔ Strong predictive signal
+✔ Low variance across validation splits
+✔ Balanced ensemble weights
+✔ Stable error distribution
+✔ Minimal overfitting risk
+
+
 # References
 1) Beginner baseball concepts such as scoring runs, winnings, and base running were referenced from the "Beginner’s Guide to Baseball" document.
 

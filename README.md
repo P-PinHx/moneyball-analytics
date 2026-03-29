@@ -176,6 +176,7 @@ run_diff_pg - run_diff / G
 
 These metrics capture *team dominance* more effectively than raw runs.
 Run differential is one of the strongest predictors of team wins.
+
 Teams with higher run differentials tend to win more games.
 
 ### Run Differential Per Game (Environment Normalization)

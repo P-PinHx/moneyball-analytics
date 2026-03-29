@@ -175,8 +175,7 @@ run_diff_pg - run_diff / G
 - reun_diff_pg normalizes the run differential by games played.
 
 These metrics capture *team dominance* more effectively than raw runs.
-Run differential is one of the strongest predictors of team wins.
-
+Run differential is one of the strongest predictors of team wins.  
 Teams with **higher run differentials** tend to **win more games**.
 
 ### Run Differential Per Game (Environment Normalization)
@@ -422,12 +421,11 @@ Potential enhancements if there is larger dataset size:
 # Final Model Characteristics
 The final model is expected to **perform consistently on the private leaderboard** evaluation dataset.
 
-✔ Strong predictive signal
-✔ Low variance across validation splits
-✔ Balanced ensemble weights
-✔ Stable error distribution
-✔ Minimal overfitting risk
-
+✔ Strong predictive signal  
+✔ Low variance across validation splits  
+✔ Balanced ensemble weights  
+✔ Stable error distribution  
+✔ Minimal overfitting risk  
 
 # References
 1) Beginner baseball concepts such as scoring runs, winnings, and base running were referenced from the "Beginner’s Guide to Baseball" document.

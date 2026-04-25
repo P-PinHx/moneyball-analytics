@@ -4,8 +4,8 @@ Predicting team wins using sabermetrics + machine learning.
 
 This project builds a stacked ensemble model that predicts baseball team wins using historical statistics. The approach combines traditional baseball analytics principles with modern ML stacking techniques.
 
-# 🏆 Best Kaggle Score:
-2.90946 MAE
+# 🏆 Best Kaggle Individual Score: **Rank 1 - 2.90946 Public Score**
+2.73425 Weighted Team Rank 1  
 
 ## Competition:
 NTU DSAI DS2F Moneyball Analytics

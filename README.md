@@ -7,7 +7,7 @@ This project builds a stacked ensemble model that predicts baseball team wins us
 # 🏆 Best Kaggle Individual Score:
 **Rank 1st: 2.90946 Public Score**
 
-Kaggle Leaderboard - https://www.kaggle.com/competitions/sctpdsai-m-3-ds-2-f-coaching-money-ball-analytics/leaderboard?tab=public
+([Kaggle Leaderboard](https://www.kaggle.com/competitions/sctpdsai-m-3-ds-2-f-coaching-money-ball-analytics/leaderboard?tab=public))
 
 - Best Public Score - 2.90946 Public Score (It's P-PinHx!)
 - Best Private Score - 2.52857 Private Score ([KarlChee](https://github.com/karlchee))

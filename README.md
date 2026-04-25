@@ -9,7 +9,10 @@ This project builds a stacked ensemble model that predicts baseball team wins us
 
 Kaggle Leaderboard - https://www.kaggle.com/competitions/sctpdsai-m-3-ds-2-f-coaching-money-ball-analytics/leaderboard?tab=public
 
-2.73425 Weighted Team Rank 1  
+Best Public Score - 2.90946 Public Score (It's P-PinHx!)
+Best Private Score - 2.52857 Private Score ([KarlChee](https://github.com/karlchee)
+)
+Overall 2.73425 Weighted Team Score Rank 1st  
 
 ## Competition:
 NTU DSAI DS2F Moneyball Analytics
